@@ -1,0 +1,132 @@
+.tx-center{
+  text-align: center;
+}
+/* 
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+*/
+
+/* Formulario */
+
+* {
+  box-sizing: border-box;
+}
+.contenedor{
+  width: 100%;
+  padding: 15px;
+}
+.formulario{
+  background: #fff;
+  margin-top: 10%;
+  padding: 3px;
+  border: 1px solid #ccc;  
+}
+h1{
+  text-align: center;
+  color: #1a2537;
+  font-size: 40px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+  font-size: 20px;
+  width: 89%;
+  padding: 10px;
+  border: none;
+}
+.input-contenedor{
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+}
+
+input:focus {
+  border: none;
+}
+
+.icon{
+  min-width: 50px;
+  text-align: center; 
+}
+.color-icon {
+  color: #999;
+}
+.button{
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  color: white;
+  font-size: 20px;
+  background:  #1a2537;
+  padding: 15px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px auto;
+}
+
+.button--state-google {
+	color: #FFF;
+	background: rgb(150, 31, 31) linear-gradient(rgb(219, 46, 46), rgb(150, 31, 31)) repeat-x;
+	border-color: rgb(150, 31, 31);
+}
+
+.button--state-facebook {
+	color: #FFF;
+	background: #2450AF linear-gradient(rgb(36, 53, 204), rgb(59, 107, 211)) repeat-x;
+	border-color: #2450AF;
+}
+
+.button:hover{
+  background: cadetblue;
+}
+p{
+  text-align: center;
+}
+.link{
+  text-decoration: none;
+    color: #1a2537;
+  font-weight: 600;
+}
+.link:hover{
+   color: cadetblue;
+}
+
+@media(min-width:768px)
+{
+  .formulario{
+      margin: auto;
+      width: 500px;
+      margin-top: 10%;
+      border-radius: 2%;
+  }
+}
+
+@media(max-width:767px) {
+  .formulario {
+    height: 100vh;
+    border: none;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    width: 80%;
+  }
+}
