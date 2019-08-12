@@ -1,3 +1,12 @@
+import { 
+    CAMBIO_NOMBRE_REGISTER,
+    CAMBIO_CORREO_REGISTER,
+    CAMBIO_CONTRASENA_REGISTER,
+    REGISTER,
+    CARGANDO,
+    ERROR
+   } from '../types/registerTypes';
+
 const INITIAL_STATE = {
     nombre_register:'',
     correo_register:'',
@@ -10,18 +19,15 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'cargando':
-            return {
-                ...state,
-                cargando: true
-            };
-        case 'cambio_nombre_register':
+        case CARGANDO:
+            return {...state, cargando: true};
+        case CAMBIO_NOMBRE_REGISTER:
             return { ...state, nombre_register: action.payload};
-        case 'cambio_correo_register':
+        case CAMBIO_CORREO_REGISTER:
             return { ...state, correo_register: action.payload};
-        case 'cambio_contrasena_register':
+        case CAMBIO_CONTRASENA_REGISTER:
             return { ...state, contrasena_register: action.payload};
-        case 'register':
+        case REGISTER:
             return {
                 ...state,
                 cargando: false,

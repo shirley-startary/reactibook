@@ -1,15 +1,22 @@
 import { auth } from '../firebase/firebaseConfig';
+import { 
+  CAMBIO_CORREO_LOGIN, 
+  CAMBIO_CONTRASENA_LOGIN, 
+  LOGUEADO,
+  USER_STATE,
+  CARGANDO
+} from '../types/loginTypes';
 
 export const cambioCorreoLogin = (text) => (dispatch) => {
   dispatch({
-    type: 'cambio_correo_login',
+    type: CAMBIO_CORREO_LOGIN,
     payload: text
   });
 };
 
 export const cambioContrasenaLogin = (text) => (dispatch) => {
   dispatch({
-    type: 'cambio_contrasena_login',
+    type: CAMBIO_CONTRASENA_LOGIN,
     payload: text
   });
 };
@@ -21,13 +28,11 @@ export const loginWithEmailAndPassword = (objetoUsuario) => async (dispatch) => 
   const {email, password} = objetoUsuario;
   try {
     const respuesta = await auth.signInWithEmailAndPassword(email, password)
-    console.log(respuesta.user);
     dispatch({
-      type: 'logueado',
+      type: LOGUEADO,
       payload: respuesta.user
     })
   } catch (error) {
-    console.log(error.message);
     dispatch({
       type: 'ERROR',
       payload: error.message
@@ -35,3 +40,21 @@ export const loginWithEmailAndPassword = (objetoUsuario) => async (dispatch) => 
   }
   
 };
+
+export const userState = () => async (dispatch) => {
+
+  await auth.onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+
+      dispatch({
+        type: USER_STATE,
+        payload: user
+      })
+      
+      // ...
+    } else {
+
+    }
+  });
+}

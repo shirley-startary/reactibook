@@ -1,42 +1,49 @@
 import { auth } from '../firebase/firebaseConfig';
 
+import { 
+  CAMBIO_NOMBRE_REGISTER,
+  CAMBIO_CORREO_REGISTER,
+  CAMBIO_CONTRASENA_REGISTER,
+  REGISTER,
+  CARGANDO,
+  ERROR
+ } from '../types/registerTypes';
+
 export const cambioNombreRegister= (text) => (dispatch) => {
   dispatch({
-    type: 'cambio_nombre_register',
+    type: CAMBIO_NOMBRE_REGISTER,
     payload: text
   });
 };
 
 export const cambioCorreoRegister= (text) => (dispatch) => {
   dispatch({
-    type: 'cambio_correo_register',
+    type: CAMBIO_CORREO_REGISTER,
     payload: text
   });
 };
 
 export const cambioContrasenaRegister= (text) => (dispatch) => {
   dispatch({
-    type: 'cambio_contrasena_register',
+    type: CAMBIO_CONTRASENA_REGISTER,
     payload: text
   });
 };
 
 export const registerWithEmailAndPassword = (objetoUsuario) => async (dispatch) => {
-  // dispatch({
-  //   type: 'CARGANDO',
-  // })
+  dispatch({
+    type: CARGANDO,
+  })
   const {email, password} = objetoUsuario;
   try {
     const respuesta = await auth.createUserWithEmailAndPassword(email, password)
-    console.log(respuesta.user);
     dispatch({
-      type: 'register',
+      type: REGISTER,
       payload: respuesta.user
     })
   } catch (error) {
-    console.log(error.message);
     dispatch({
-      type: 'ERROR',
+      type: ERROR,
       payload: error.message
     })
   }

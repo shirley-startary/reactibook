@@ -1,3 +1,12 @@
+import { 
+    CAMBIO_CORREO_LOGIN, 
+    CAMBIO_CONTRASENA_LOGIN ,
+    LOGUEADO,
+    USER_STATE,
+    CARGANDO
+} from '../types/loginTypes';
+
+
 const INITIAL_STATE = {
     correo_login:'',
     contrasena_login:'',
@@ -9,23 +18,30 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'cargando':
+        case CARGANDO:
             return {
                 ...state,
                 cargando: true
             };
-        case 'cambio_correo_login':
+        case CAMBIO_CORREO_LOGIN:
             return { ...state, correo_login: action.payload};
-        case 'cambio_contrasena_login':
+        case CAMBIO_CONTRASENA_LOGIN:
             return { ...state, contrasena_login: action.payload};
-        case 'logueado':
+        case LOGUEADO:
             return {
                 ...state,
                 cargando: false,
                 error:'',
                 user: action.payload,
                 regresar: true,
-            }
+            };
+        case USER_STATE:
+            return {
+                ...state,
+                cargando: false,
+                error:'',
+                user: action.payload
+            };
         default: return state;
     }
 }

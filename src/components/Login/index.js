@@ -8,7 +8,7 @@ import * as loginActions from '../../actions/loginActions';
 class Login extends Component{
   
   componentDidMount() {
-
+    this.props.userState();
   }
 
   inputHandleChange = (event) => {
@@ -22,8 +22,6 @@ class Login extends Component{
   handleClickLogin = (e) => {
     e.preventDefault()
     const { correo_login, contrasena_login, loginWithEmailAndPassword} = this.props;
-    console.log('correo: ', correo_login);
-    console.log('contrasena: ', contrasena_login);
     const objetoUsuario = {
       email: correo_login,
       password: contrasena_login
@@ -45,12 +43,10 @@ class Login extends Component{
     return false;
   }
 
-  render() {
-    console.log(this.props);
-    
+  render() {    
     return (
       <form className="formulario">
-        { (this.props.regresar) ? <Redirect to='/muro'/> : ''}
+        { (this.props.user) ? <Redirect to='/muro'/> : ''}
         <h1>Iniciar sesión</h1>
         <div className="contenedor">
             <div className="input-contenedor">
