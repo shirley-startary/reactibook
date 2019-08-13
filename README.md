@@ -1,3 +1,14 @@
+# Reactibook
+Este es un proyecto en el que experimente con React, Redux, react-router-dom, Firebase
+
+## Requerimientos
+
+![reactibook](https://i.ibb.co/2tNsznd/Captura-de-Pantalla-2019-08-13-a-la-s-12-37-36.png);
+![1](https://i.ibb.co/1r5RN7t/Captura-de-Pantalla-2019-08-13-a-la-s-12-41-50.png)
+![2](https://i.ibb.co/L1T7FDq/Captura-de-Pantalla-2019-08-13-a-la-s-12-42-09.png)
+![3](https://i.ibb.co/yQ64Dsw/Captura-de-Pantalla-2019-08-13-a-la-s-12-42-33.png)
+
+## Documentation
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
