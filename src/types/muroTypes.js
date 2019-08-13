@@ -7,3 +7,5 @@ export const CAMBIO_TEXTO_COMENTARIO = 'cambio_texto_comentario';
 export const CAMBIO_STATUS_COMENTARIO = 'cambio_status_comentario';
 export const PUBLICAR_COMENTARIO = 'publicar_comentario';
 export const ELIMINAR_COMENTARIO = 'eliminar_comentario';
+export const AGREGAR_MENSAJE_EN_INPUT = 'agregar_Mensaje_En_Input';
+export const ACTUALIZA_MENSAJE = 'actualiza_mensaje';

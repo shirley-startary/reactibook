@@ -6,7 +6,7 @@ import {
   CAMBIO_CONTRASENA_REGISTER,
   REGISTER,
   CARGANDO,
-  ERROR
+  ERROR,
  } from '../types/registerTypes';
 
 export const cambioNombreRegister= (text) => (dispatch) => {

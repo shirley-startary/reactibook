@@ -7,14 +7,8 @@ import * as postActions from "../../actions/postActions";
 
 class PostList extends Component {
 
-  editar = (e) => {
-    const inputMensaje = document.querySelector(`div[data-mensaje='${e.target.dataset.id}']`);
-    const boxEdit = document.querySelector(`div[data-boxedit='${e.target.dataset.id}']`);
-    this.editarHideAndShow(inputMensaje, boxEdit)
-  }
-
   editarHideAndShow = (inputMensaje,boxEdit) => {
-    // const inputMensaje = document.querySelector(`div[data-mensaje='${e.target.dataset.id}']`);
+    // const inputMensaje = document.querySelectorAll(`div[data-mensaje='${e.target.dataset.id}']`);
     // const boxEdit = document.querySelector(`div[data-boxedit='${e.target.dataset.id}']`);
     if (inputMensaje.classList.contains("hide")) {
       inputMensaje.classList.remove("hide");
@@ -28,6 +22,30 @@ class PostList extends Component {
       boxEdit.classList.add("show");
       boxEdit.classList.remove("hide");
     }
+  }
+
+  editar = (e) => {
+    const inputMensaje = document.querySelector(`div[data-mensaje='${e.target.dataset.id}']`);
+    const boxEdit = document.querySelector(`div[data-boxedit='${e.target.dataset.id}']`);
+    const postId = e.target.dataset.id
+    const { posts, agregarMensajeEnInput , inputedit} =this.props
+    const {mensaje} = posts.filter(item => item.postId === postId)[0]
+ 
+    agregarMensajeEnInput(mensaje)
+    
+    this.editarHideAndShow(inputMensaje, boxEdit)
+  }
+
+  handleEditarComentario = (e) => {
+    const { inputedit, editarComentario} =this.props
+    const inputMensaje = document.querySelector(`div[data-mensaje='${e.target.dataset.id}']`);
+    const boxEdit = document.querySelector(`div[data-boxedit='${e.target.dataset.id}']`);
+    this.editarHideAndShow(inputMensaje, boxEdit)
+    editarComentario(e.target.dataset.id, inputedit)
+  }
+
+  editarmensaje = (e) => {
+    this.props.agregarMensajeEnInput(e.target.value);
   }
 
   ponerPost = () => {
@@ -52,8 +70,8 @@ class PostList extends Component {
                     {post.mensaje}
                 </div>
                 <div className="comment-content hide" data-boxedit={post.postId}>
-                  <input className="controls input-config" type="text" value={post.mensaje} />
-                  <input className="buttons button-config" type="button" value="Enviar" data-id={post.postId} onClick={this.editar}/>
+                  <input className="controls input-config" type="text" data-id={post.postId} value={this.props.inputedit} onChange={this.editarmensaje} />
+                  <input className="buttons button-config" type="button" value="Enviar" data-id={post.postId} onClick={this.handleEditarComentario}/>
                 </div>
             </div>
           </div>

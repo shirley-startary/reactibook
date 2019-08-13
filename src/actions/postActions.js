@@ -8,7 +8,9 @@ import {
   CAMBIO_TEXTO_COMENTARIO, 
   CAMBIO_STATUS_COMENTARIO,
   PUBLICAR_COMENTARIO,
-  ELIMINAR_COMENTARIO
+  ELIMINAR_COMENTARIO,
+  AGREGAR_MENSAJE_EN_INPUT,
+  ACTUALIZA_MENSAJE
 } from '../types/muroTypes';
 
 
@@ -94,12 +96,34 @@ export const publicar = (post) => async (dispatch) => {
   }
 }
 
-export const editarComentario = (comentarioId) => async (dispatch) => {
-  console.log(comentarioId);
-  // await database.ref(`/Posts/${comentarioId}/mensaje`).once('value', (snapshot) => {
-  //   console.log(snapshot.val());
+export const agregarMensajeEnInput = (mensaje) => (dispatch) => {
+  console.log(mensaje);
+  dispatch({
+    type: AGREGAR_MENSAJE_EN_INPUT,
+    payload: mensaje
+  })
+  
+}
 
-  // })
+export const editarComentario = (comentarioId, mensaje) => async (dispatch) => {
+  dispatch({
+    type: CARGANDO
+  })
+  try {
+    const updates = {};
+    updates['/Posts/' + comentarioId + '/mensaje'] = mensaje;
+    await database.ref().update(updates);
+    
+    dispatch({
+      type: ACTUALIZA_MENSAJE,
+    })
+    
+  } catch (error) {
+    dispatch({
+      type:ERROR,
+      payload:error.message
+    })
+  }
   
 }
 
@@ -123,5 +147,5 @@ export const eliminarComentario = (comentarioId) => async (dispatch) => {
       payload: error.message
     })
   }
-
 }
+

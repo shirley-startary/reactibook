@@ -6,7 +6,9 @@ import {
   ERROR,CAMBIO_TEXTO_COMENTARIO, 
   CAMBIO_STATUS_COMENTARIO,
   PUBLICAR_COMENTARIO,
-  ELIMINAR_COMENTARIO
+  ELIMINAR_COMENTARIO,
+  AGREGAR_MENSAJE_EN_INPUT,
+  ACTUALIZA_MENSAJE
 } from '../types/muroTypes';
 
 const INITIAL_STATE = {
@@ -16,7 +18,7 @@ const INITIAL_STATE = {
   user: null,
   comment:'',
   commentStatus:'amigos',
-
+  inputedit:'',
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -49,8 +51,15 @@ export default (state = INITIAL_STATE, action) => {
     
     case PUBLICAR_COMENTARIO:
       return {...state, comment: '', cargando: false, error: ''};
+
     case ELIMINAR_COMENTARIO:
         return {...state, posts: action.payload, cargando: false, error: ''};
+
+    case AGREGAR_MENSAJE_EN_INPUT:
+      return {...state, inputedit: action.payload }
+
+    case ACTUALIZA_MENSAJE:
+      return {...state, cargando: false, error:'', inputedit:''} 
     default: return state;
   }
 }
