@@ -49,60 +49,61 @@ class Login extends Component{
 
 
   ponerContenido = () =>  {
-    console.log(this.props.error);
     if (this.props.cargando) {
       return <Spinner/>
     }
 
-    return (  <form className="formulario">
-    { (this.props.user) ? <Redirect to='/muro'/> : ''}
-    <h1>Iniciar sesión</h1>
-    <div className="contenedor">
-        <div className="input-contenedor">
-          <i className="fas fa-envelope icon color-icon"></i>
-          <input
-            name="correo"
-            type="email"
-            placeholder="Correo Electronico"
-            value={this.props.correo_login}
-            onChange={ this.inputHandleChange}
-          />
-        </div>
-       
-        <div className="input-contenedor">
-          <i className="fas fa-key icon color-icon"></i>
-          <input
-            name="contrasena"
-            type="password"
-            placeholder="Contraseña"
-            value={ this.props.contrasena_login}
-            onChange={ this.inputHandleChange}
-          />
-        </div>
-        <Fatal mensaje={this.props.error}/>
-        <input 
-          type="submit" 
-          value="Login" 
-          className="button"
-          onClick={this.handleClickLogin}
-          disabled={this.desabilitar()}
-        />
+    return (  
+      <form className="formulario">
+        { (this.props.user) ? <Redirect to='/muro'/> : ''}
+        <h1>Iniciar sesión</h1>
+        <div className="contenedor">
+            <div className="input-contenedor">
+              <i className="fas fa-envelope icon color-icon"></i>
+              <input
+                name="correo"
+                type="email"
+                placeholder="Correo Electronico"
+                value={this.props.correo_login}
+                onChange={ this.inputHandleChange}
+              />
+            </div>
+          
+            <div className="input-contenedor">
+              <i className="fas fa-key icon color-icon"></i>
+              <input
+                name="contrasena"
+                type="password"
+                placeholder="Contraseña"
+                value={ this.props.contrasena_login}
+                onChange={ this.inputHandleChange}
+              />
+            </div>
+            <Fatal mensaje={this.props.error}/>
+            <input 
+              type="submit" 
+              value="Login" 
+              className="button"
+              onClick={this.handleClickLogin}
+              disabled={this.desabilitar()}
+            />
 
-        <div className="tx-center">o</div>
-        <div className="text-center">
-          <button className="button button--state-google">
-            <i className="fab fa-google icon"></i>
-            Entrar con Google
-          </button>
-          <button className="button button--state-facebook ">
-            <i className="fab fa-facebook-f icon"></i>
-            Entrar con Facebook
-          </button>
-        </div>
-        <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-        <p>¿No tienes una cuenta? <Link to='/register' className="link">Registrate </Link></p>
-      </div>
-  </form>)
+            <div className="tx-center">o</div>
+            <div className="text-center">
+              <button className="button button--state-google">
+                <i className="fab fa-google icon"></i>
+                Entrar con Google
+              </button>
+              <button className="button button--state-facebook ">
+                <i className="fab fa-facebook-f icon"></i>
+                Entrar con Facebook
+              </button>
+            </div>
+            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+            <p>¿No tienes una cuenta? <Link to='/register' className="link">Registrate </Link></p>
+          </div>
+      </form>
+    )
 
 
   };

@@ -36,7 +36,7 @@ export default (state = INITIAL_STATE, action) => {
                 regresar: true,
             }
         case ERROR:
-            return {...state, error: action.payload }
+            return {...state, error: action.payload, cargando: false }
         default: return state;
     }
 }

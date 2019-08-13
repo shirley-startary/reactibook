@@ -44,7 +44,7 @@ export const registerWithEmailAndPassword = (objetoUsuario) => async (dispatch) 
   } catch (error) {
     dispatch({
       type: ERROR,
-      payload: error.message
+      payload: error
     })
   }
 };

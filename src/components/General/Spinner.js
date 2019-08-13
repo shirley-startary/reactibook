@@ -1,5 +1,5 @@
 import React from "react";
-import './spinner.css'
+import './estilos.css'
 
 const Spinner = () => (
   <div className="center m-top">
