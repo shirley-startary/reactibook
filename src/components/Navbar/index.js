@@ -20,7 +20,7 @@ class Navbar extends Component {
         
   }
 
-  render(){
+  render(){    
     return (
       <header >
         <nav>
@@ -31,7 +31,10 @@ class Navbar extends Component {
             <span>&#9776;</span>
           </div>
           <div className="enlaces uno" id="enlaces" onClick={this.efectIcono}>
-            <a href="/perfil">Perfil</a>
+            <div>
+              <a href="/perfil">{this.props.user? this.props.user.displayName: ''}</a>
+            </div>
+            <div><a href="/perfil">Perfil</a></div>
             <div onClick={this.props.cerrarSesion}><a href="/">Cerrar Sesion</a></div>
           </div>
         </nav>

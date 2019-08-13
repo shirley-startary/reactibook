@@ -13,13 +13,22 @@ import FormPost from './FormNewPost';
 
 
 class Muro extends Component {
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
     this.props.userState()
   };
 
   componentDidMount() {
-    this.props.traerPosts();
+    
+    if (!(this.props.posts).length) {
+      this.props.traerPosts();
+    }
   };
+
+  componentDidUpdate(){
+    if (!(this.props.posts).length) {
+      this.props.traerPosts();
+    }
+  }
 
   ponerContenido = () =>  {
     if (this.props.cargando) {
@@ -40,9 +49,7 @@ class Muro extends Component {
     )
   };
 
-  render() {
-    console.log(this.props.user ? this.props.user.uid:'');
-    
+  render() {    
     return (
       <div>
         {!this.props.user ? <Redirect to="/"/>:''}

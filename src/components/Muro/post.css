@@ -9,10 +9,11 @@ body {
 }
 
 .form-post {
+    max-width: 700px;
     width: 80%;
     height: 170px;
     background: #4e4d4d;
-    margin: auto;
+    margin: 60px auto 15px;;
     margin-top: 30px;
     padding: 20px 30px;
     border-top: 4px solid #017bab;
@@ -49,6 +50,12 @@ body {
     color: white;
     font-weight: bold;
     border-radius: 5px;
+}
+
+.buttons:hover{
+    background: #252323;
+    border: 1px solid #017bab;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 750px) {

@@ -248,6 +248,25 @@ body {
    border-radius: 3px;
 }
 
+
+.hide {
+   display: none;
+}
+.show {
+   display: block;
+}
+
+input.input-config {
+   width: 75%;
+   font-size: 13px;
+   resize: none
+}
+input.button-config {
+   width: 20%;
+   margin-left:0px;
+   font-size: 12px
+}
+
 /** =====================
 * Responsive
 ========================*/

@@ -1,10 +1,22 @@
-import { TREAR_POSTS, CARGANDO, USER_STATE, CERRAR_SESION, ERROR } from '../types/muroTypes';
+import { 
+  TREAR_POSTS, 
+  CARGANDO, 
+  USER_STATE, 
+  CERRAR_SESION, 
+  ERROR,CAMBIO_TEXTO_COMENTARIO, 
+  CAMBIO_STATUS_COMENTARIO,
+  PUBLICAR_COMENTARIO,
+  ELIMINAR_COMENTARIO
+} from '../types/muroTypes';
 
 const INITIAL_STATE = {
   posts:[],
   cargando: false,
-  error: false,
+  error: '',
   user: null,
+  comment:'',
+  commentStatus:'amigos',
+
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -13,19 +25,32 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state, 
         posts: action.payload, 
-        cargando: false
+        cargando: false,
+        error: ''
       };
 
     case CARGANDO:
-      return { ...state, cargando: true};
+      return { ...state, cargando: true} ;
 
     case ERROR:
-        return { ...state, error: action.payload, cargando: false}
+      return { ...state, error: action.payload, cargando: false }
 
     case USER_STATE:
-        return {...state, user: action.payload};
+      return { ...state, user: action.payload };
+    
     case CERRAR_SESION:
-        return {...state, user: action.payload};
+      return { ...state, user: action.payload };
+    
+    case CAMBIO_TEXTO_COMENTARIO:
+      return { ...state, comment: action.payload };
+
+    case CAMBIO_STATUS_COMENTARIO:
+      return { ...state, commentStatus: action.payload };
+    
+    case PUBLICAR_COMENTARIO:
+      return {...state, comment: '', cargando: false, error: ''};
+    case ELIMINAR_COMENTARIO:
+        return {...state, posts: action.payload, cargando: false, error: ''};
     default: return state;
   }
 }

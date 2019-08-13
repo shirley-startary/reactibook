@@ -11,8 +11,8 @@ const INITIAL_STATE = {
     correo_login:'',
     contrasena_login:'',
     cargando: false,
-    error: null,
-    user:null,
+    error: '',
+    user: null,
     regresar: false
 }
 

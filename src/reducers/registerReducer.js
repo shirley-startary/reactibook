@@ -35,6 +35,8 @@ export default (state = INITIAL_STATE, action) => {
                 user: action.payload,
                 regresar: true,
             }
+        case ERROR:
+            return {...state, error: action.payload }
         default: return state;
     }
 }

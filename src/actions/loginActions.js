@@ -22,9 +22,9 @@ export const cambioContrasenaLogin = (text) => (dispatch) => {
 };
 
 export const loginWithEmailAndPassword = (objetoUsuario) => async (dispatch) => {
-  // dispatch({
-  //   type: 'CARGANDO',
-  // })
+  dispatch({
+    type: CARGANDO,
+  })
   const {email, password} = objetoUsuario;
   try {
     const respuesta = await auth.signInWithEmailAndPassword(email, password)
