@@ -3,7 +3,8 @@ import {
     CAMBIO_CONTRASENA_LOGIN ,
     LOGUEADO,
     USER_STATE,
-    CARGANDO
+    CARGANDO,
+    ERROR
 } from '../types/loginTypes';
 
 
@@ -13,7 +14,7 @@ const INITIAL_STATE = {
     cargando: false,
     error: '',
     user: null,
-    regresar: false
+    regresar: false,
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -42,6 +43,9 @@ export default (state = INITIAL_STATE, action) => {
                 error:'',
                 user: action.payload
             };
+
+        case ERROR:
+            return { ...state, error: action.payload, cargando:false}
         default: return state;
     }
 }

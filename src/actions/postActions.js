@@ -75,7 +75,6 @@ export const cambioStatusComentario = (status) => (dispatch) => {
 }
 
 export const publicar = (post) => async (dispatch) => {
-  // console.log(tarea);
   dispatch({
     type: CARGANDO,
   })
@@ -97,7 +96,6 @@ export const publicar = (post) => async (dispatch) => {
 }
 
 export const agregarMensajeEnInput = (mensaje) => (dispatch) => {
-  console.log(mensaje);
   dispatch({
     type: AGREGAR_MENSAJE_EN_INPUT,
     payload: mensaje
@@ -117,7 +115,7 @@ export const editarComentario = (comentarioId, mensaje) => async (dispatch) => {
     dispatch({
       type: ACTUALIZA_MENSAJE,
     })
-    
+
   } catch (error) {
     dispatch({
       type:ERROR,

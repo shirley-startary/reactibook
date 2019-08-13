@@ -4,7 +4,8 @@ import {
   CAMBIO_CONTRASENA_LOGIN, 
   LOGUEADO,
   USER_STATE,
-  CARGANDO
+  CARGANDO,
+  ERROR
 } from '../types/loginTypes';
 
 export const cambioCorreoLogin = (text) => (dispatch) => {
@@ -32,9 +33,9 @@ export const loginWithEmailAndPassword = (objetoUsuario) => async (dispatch) => 
       type: LOGUEADO,
       payload: respuesta.user
     })
-  } catch (error) {
+  } catch (error) {    
     dispatch({
-      type: 'ERROR',
+      type: ERROR,
       payload: error.message
     })
   }

@@ -30,7 +30,7 @@ class Muro extends Component {
     }
   }
 
-  ponerContenido = () =>  {
+  ponerContenido = () =>  {    
     if (this.props.cargando) {
       return <Spinner/>
     }

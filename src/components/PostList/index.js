@@ -28,7 +28,7 @@ class PostList extends Component {
     const inputMensaje = document.querySelector(`div[data-mensaje='${e.target.dataset.id}']`);
     const boxEdit = document.querySelector(`div[data-boxedit='${e.target.dataset.id}']`);
     const postId = e.target.dataset.id
-    const { posts, agregarMensajeEnInput , inputedit} =this.props
+    const { posts, agregarMensajeEnInput } =this.props
     const {mensaje} = posts.filter(item => item.postId === postId)[0]
  
     agregarMensajeEnInput(mensaje)

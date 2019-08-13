@@ -1,7 +1,7 @@
 import React from "react";
 
 const Fatal = (props) => {
-    return <h2>{props.mensaje}</h2>;
+    return <p>{props.mensaje}</p>;
 }
 
 export default Fatal;
