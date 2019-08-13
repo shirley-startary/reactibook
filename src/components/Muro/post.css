@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial;
+}
+
+.form-post {
+    width: 80%;
+    height: 170px;
+    background: #4e4d4d;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px 30px;
+    border-top: 4px solid #017bab;
+    color:white;
+}
+
+.form-post h5 {
+    margin: 0;
+    text-align: center;
+    height: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border-bottom: 1px solid;
+}
+
+.controls {
+    width: 100%;
+    border: 1px solid #017bab;
+    margin-bottom: 5px;
+    padding: 11px 10px;
+    background: #252323;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.buttons {
+    float: right;
+    width: 30%;
+    height: 30px;
+    margin-left: 14px;
+    background: #017bab;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 750px) {
+    .form-post {
+        width: 100%;
+        padding:20px 20px;
+    }
+}

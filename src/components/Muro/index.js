@@ -8,6 +8,8 @@ import * as postActions from "../../actions/postActions";
 import Navbar from '../Navbar';
 import PostList from '../PostList';
 import Spinner from '../General/Spinner';
+import Fatal from '../General/Fatal';
+import FormPost from './FormNewPost';
 
 
 class Muro extends Component {
@@ -23,9 +25,13 @@ class Muro extends Component {
     if (this.props.cargando) {
       return <Spinner/>
     }
+    if (this.props.error) {
+      return <Fatal mensaje={this.props.error} />
+    }
     return (
       <div>
         <Navbar/>
+        <FormPost/>
         <div className="comments-container">
           <h1>Comentarios</h1>
           <PostList/>
@@ -35,6 +41,8 @@ class Muro extends Component {
   };
 
   render() {
+    console.log(this.props.user ? this.props.user.uid:'');
+    
     return (
       <div>
         {!this.props.user ? <Redirect to="/"/>:''}
